@@ -12,7 +12,6 @@ public class AddUserActivity extends AppCompatActivity {
     private EditText editFirstName;
     private EditText editLastName;
     private EditText editEmail;
-    private Button addUserButton;
     private RadioGroup radioDegreeProgram;
 
     @Override
@@ -23,7 +22,7 @@ public class AddUserActivity extends AppCompatActivity {
         editFirstName = findViewById(R.id.editFirstName);
         editLastName = findViewById(R.id.editLastName);
         editEmail = findViewById(R.id.editEmail);
-        addUserButton = findViewById(R.id.addUserButton);
+        Button addUserButton = findViewById(R.id.addUserButton);
         radioDegreeProgram = findViewById(R.id.radioDegreeProgram);
 
         addUserButton.setOnClickListener(new View.OnClickListener() {

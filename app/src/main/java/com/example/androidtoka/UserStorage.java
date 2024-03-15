@@ -1,7 +1,6 @@
 package com.example.androidtoka;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class UserStorage {
     private static UserStorage userStorage = null;

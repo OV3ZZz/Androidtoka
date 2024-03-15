@@ -3,12 +3,9 @@ package com.example.androidtoka;
 import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class UserListAdapter extends RecyclerView.Adapter<UserViewHolder> {
@@ -29,10 +26,10 @@ public class UserListAdapter extends RecyclerView.Adapter<UserViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
-        holder.firstName.setText(users.get(position).getFirstName());
-        holder.lastName.setText(users.get(position).getLastName());
-        holder.email.setText(users.get(position).getEmail());
-        holder.degreeProgram.setText(users.get(position).getDegreeProgram());
+        holder.txtFirstName.setText(users.get(position).getFirstName());
+        holder.txtLastName.setText(users.get(position).getLastName());
+        holder.txtEmail.setText(users.get(position).getEmail());
+        holder.txtDegreeProgram.setText(users.get(position).getDegreeProgram());
     }
 
     @Override
