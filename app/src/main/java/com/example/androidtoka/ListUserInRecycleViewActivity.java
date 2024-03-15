@@ -23,8 +23,7 @@ public class ListUserInRecycleViewActivity extends AppCompatActivity {
         userStorage = UserStorage.getInstance();
 
         // Set up the RecyclerView adapter
-        UserListAdapter adapter = new UserListAdapter(userStorage.getUserList());
-        rvUserView.setAdapter(adapter);
+        rvUserView.setAdapter(new UserListAdapter(getApplicationContext(), userStorage.getUsers()));
 
     }
 

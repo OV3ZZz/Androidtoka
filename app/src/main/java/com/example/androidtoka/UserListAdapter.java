@@ -10,54 +10,34 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
 
-public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.UserViewHolder> {
-    private List<User> userList;
+public class UserListAdapter extends RecyclerView.Adapter<UserViewHolder> {
 
-    public UserListAdapter(List<User> userList) {
-        this.userList = userList;
+    private Context context;
+    private ArrayList<User> users = new ArrayList<>();
+
+    public UserListAdapter(Context context,ArrayList<User> users) {
+        this.context = context;
+        this.users = users;
     }
 
     @NonNull
     @Override
     public UserViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.user_view, parent, false);
-        return new UserViewHolder(view);
+        return new UserViewHolder(LayoutInflater.from(context).inflate(R.layout.user_view, parent, false));
     }
 
     @Override
     public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
-        User user = userList.get(position);
-        holder.bind(user);
+        holder.firstName.setText(users.get(position).getFirstName());
+        holder.lastName.setText(users.get(position).getLastName());
+        holder.email.setText(users.get(position).getEmail());
+        holder.degreeProgram.setText(users.get(position).getDegreeProgram());
     }
 
     @Override
     public int getItemCount() {
-        return userList.size();
-    }
-
-    public class UserViewHolder extends RecyclerView.ViewHolder {
-
-        private TextView textFirstName;
-        private TextView textLastName;
-        private TextView textEmail;
-        private TextView textDegreeProgram;
-
-        public UserViewHolder(View itemView) {
-            super(itemView);
-            textFirstName = itemView.findViewById(R.id.txtFirstName);
-            textLastName = itemView.findViewById(R.id.txtLastName);
-            textEmail = itemView.findViewById(R.id.txtEmail);
-            textDegreeProgram = itemView.findViewById(R.id.txtDegreeProgram);
-        }
-
-        public void bind(User user) {
-            textFirstName.setText(user.getFirstName());
-            textLastName.setText(user.getLastName());
-            textEmail.setText(user.getEmail());
-            textDegreeProgram.setText(user.getDegreeProgram());
-        }
+        return users.size();
     }
 
 }

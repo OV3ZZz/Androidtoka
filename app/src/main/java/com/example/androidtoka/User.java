@@ -1,10 +1,10 @@
 package com.example.androidtoka;
 
 public class User {
-    private String firstName;
-    private String lastName;
-    private String email;
-    private String degreeProgram;
+    protected String firstName;
+    protected String lastName;
+    protected String email;
+    protected String degreeProgram;
 
     public User(String firstName, String lastName, String email, String degreeProgram) {
         this.firstName = firstName;

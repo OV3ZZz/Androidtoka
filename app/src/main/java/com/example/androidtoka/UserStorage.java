@@ -4,25 +4,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserStorage {
-    private static UserStorage instance;
-    private List<User> userList;
+    private static UserStorage userStorage = null;
+    private ArrayList<User> users = new ArrayList<>();
 
     private UserStorage() {
-        userList = new ArrayList<>();
     }
 
-    public static synchronized UserStorage getInstance() {
-        if (instance == null) {
-            instance = new UserStorage();
+    public static UserStorage getInstance() {
+        if (userStorage == null) {
+            userStorage = new UserStorage();
         }
-        return instance;
+        return userStorage;
+    }
+
+    public ArrayList<User> getUsers() {
+        return users;
     }
 
     public void addUser(User user) {
-        userList.add(user);
-    }
-
-    public List<User> getUserList() {
-        return userList;
+        users.add(user);
     }
 }
